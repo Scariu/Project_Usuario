@@ -34,6 +34,15 @@ public class MainActivity extends AppCompatActivity {
 
                 String texto = "Usuario: " + clickName + " " + clickLastName + " " + "Email: " + clickEmail + " " + "Contraseña: " + clickPassword;
 
+                if (clickName.isEmpty() || clickLastName.isEmpty() || clickEmail.isEmpty()
+                        || clickPassword.isEmpty()) {
+                    Toast.makeText(getBaseContext(), "Debe completar todos los campos ", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if (!clickEmail.contains("@")) {
+                    Toast.makeText(getBaseContext(), "Correo inválido ", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 Toast.makeText(getBaseContext(), texto, Toast.LENGTH_LONG).show();
             }
         });
